@@ -5,7 +5,7 @@
 #pragma resource "*.dfm"
 TForm1 *Form1; //小球大小25*25
 TShape *bricks[31];//初始化30个砖块对象数组,最后带一个挡板
-static int score,countTime,leftTime=120;
+static int score,countTime,leftTime=150,hp=3;
 
 __fastcall TForm1::TForm1(TComponent* Owner)
         : TForm(Owner)
@@ -13,11 +13,10 @@ __fastcall TForm1::TForm1(TComponent* Owner)
         initBricks();//调用初始化砖块函数
 }
 
-//小球横,纵坐标,dx是横向方向速,dy是纵向方向速
-int x = 456;   // X_max:1000
-int y = 456;   // Y_max:500  PanelSize:200*25
-int dx = 1;
-int dy = 1;
+//小球横,纵坐标
+int x = 456,y = 456;   // X_max:1000 Y_max:500  PanelSize:200*25
+int dx = 1,dy = 1;     //dx/dy是横/纵向方向速度
+
 
 void __fastcall TForm1::Timer1Timer(TObject *Sender){ //10行代码,小球四边碰撞
         alert("time");
@@ -30,7 +29,7 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender){ //10行代码,小球四边碰撞
         if(x>965|x<0) dx=-dx;               //B.碰到y轴跟挡板,x方向速度取反
         if(y>435||y<200) hitBrick();        //C.设置一个y1<y<y2,越过这个临界线,不判断碰撞.减少大量不必要的循环
         if(score>29) alert("pass");         //D.Succeed.
-        if(y>476||leftTime<1) alert("end"); //E.Game Over.
+        if(y>476||leftTime<1 ) alert("end"); //E.Game Over.
 }
 
 int brickX;
@@ -41,7 +40,7 @@ int status =1;
 
 //初始化砖块们
 void __fastcall TForm1::initBricks(void){
-        ShowMessage("空格键开始暂停,左右键控制挡板");
+        ShowMessage("空格键开始暂停,左右键控制挡板,3条生命结束");
         int tempX = 0;
         int tempY = 0;
         for(int i=0;i<30;i++){
@@ -126,17 +125,21 @@ void __fastcall TForm1::alert(AnsiString status){
       ShowMessage("Succeed!恭喜通关,");
       }
       if(status=="end"){//Game over
+       x=465,y=465;
+       Label3->Caption=AnsiString("HP : ")+(--hp);
        Timer1->Enabled=false;
-       ShowMessage("Game Over,Please Try Again!");
+       ShowMessage("U're died,Please Try Again!(按空格重生))");
+       if(hp<1){
+       ShowMessage("Game Over!");
        Sleep(1200);
-       this->Close();
+       this->Close();}
+
       }
       if(status=="time"&&countTime%70==0){
       Label2->Caption=AnsiString("LeftTime:")+(--leftTime);
       }
-
-
 }
+
 
 
 

@@ -336,7 +336,14 @@ object Form1: TForm1
     Top = 384
     Width = 70
     Height = 13
-    Caption = 'LeftTime: 120s'
+    Caption = 'LeftTime: 150s'
+  end
+  object Label3: TLabel
+    Left = 824
+    Top = 320
+    Width = 30
+    Height = 13
+    Caption = 'HP : 3'
   end
   object Timer1: TTimer
     Enabled = False

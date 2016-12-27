@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 894
-  Top = 749
+  Left = 524
+  Top = 722
   Width = 468
   Height = 253
   Caption = 'Form1'
@@ -326,7 +326,6 @@ object Form1: TForm1
       'Memo1')
     PopupMenu = PopupMenu2
     TabOrder = 0
-    OnChange = Memo1Change
   end
   object Edit1: TEdit
     Left = 136
@@ -344,46 +343,6 @@ object Form1: TForm1
     Caption = 'Sure'
     TabOrder = 2
     OnClick = Button1Click
-  end
-  object DateTimePicker1: TDateTimePicker
-    Left = 80
-    Top = 72
-    Width = 233
-    Height = 25
-    CalAlignment = dtaLeft
-    Date = 42716.9233404861
-    Time = 42716.9233404861
-    DateFormat = dfShort
-    DateMode = dmComboBox
-    Kind = dtkDate
-    ParseInput = False
-    TabOrder = 3
-    Visible = False
-  end
-  object DateTimePicker2: TDateTimePicker
-    Left = 80
-    Top = 120
-    Width = 233
-    Height = 25
-    CalAlignment = dtaLeft
-    Date = 42716.9235064236
-    Time = 42716.9235064236
-    DateFormat = dfShort
-    DateMode = dmComboBox
-    Kind = dtkTime
-    ParseInput = False
-    TabOrder = 4
-    Visible = False
-  end
-  object SetTime: TButton
-    Left = 344
-    Top = 80
-    Width = 73
-    Height = 57
-    Caption = 'SetTime'
-    TabOrder = 5
-    Visible = False
-    OnClick = SetTimeClick
   end
   object TrayIcon1: TTrayIcon
     Visible = True
@@ -425,10 +384,6 @@ object Form1: TForm1
       Caption = 'Set Fontcolor'
       OnClick = SetFont1Click
     end
-    object SetTimeout1: TMenuItem
-      Caption = 'Set Timeout'
-      OnClick = SetTimeout1Click
-    end
     object CloseNote1: TMenuItem
       Caption = 'Close Note'
       OnClick = CloseNote1Click
@@ -446,13 +401,19 @@ object Form1: TForm1
       OnClick = DelNote2Click
     end
     object SetAlert1: TMenuItem
-      Caption = '(*)Set Alert'
+      Caption = '(*)Set Timeout'
       OnClick = SetAlert1Click
     end
   end
   object ColorDialog1: TColorDialog
     Ctl3D = True
     Left = 8
+    Top = 176
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 408
     Top = 176
   end
 end

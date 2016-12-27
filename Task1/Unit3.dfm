@@ -1,6 +1,6 @@
 object Form3: TForm3
-  Left = 2190
-  Top = 394
+  Left = 2346
+  Top = 551
   Width = 453
   Height = 220
   Caption = 'Form3'
@@ -316,8 +316,4 @@ object Form3: TForm3
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object PopupMenu1: TPopupMenu
-    Left = 64
-    Top = 64
-  end
 end

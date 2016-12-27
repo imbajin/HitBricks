@@ -322,8 +322,8 @@ object Form2: TForm2
     Width = 233
     Height = 25
     CalAlignment = dtaLeft
-    Date = 42726.9233404861
-    Time = 42726.9233404861
+    Date = 42731.9233404861
+    Time = 42731.9233404861
     DateFormat = dfShort
     DateMode = dmComboBox
     Kind = dtkDate
